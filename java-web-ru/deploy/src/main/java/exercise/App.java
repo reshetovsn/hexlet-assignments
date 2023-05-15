@@ -31,7 +31,7 @@ public class App {
 
         // BEGIN
         app.addServlet(ctx, CompaniesServlet.class.getSimpleName(), new CompaniesServlet());
-        ctx.addServletMappingDecoded("/companies",CompaniesServlet.class.getSimpleName());
+        ctx.addServletMappingDecoded("/companies", CompaniesServlet.class.getSimpleName());
         // END
 
         return app;
