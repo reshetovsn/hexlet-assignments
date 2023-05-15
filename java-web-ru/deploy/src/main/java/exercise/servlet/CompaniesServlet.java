@@ -25,7 +25,9 @@ public class CompaniesServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
 
         if (request.getQueryString() == null) {
-            out.println(companies);
+            String allCompanies = companies.stream()
+                    .collect(Collectors.joining("\n")).replaceAll("[\\[\\]]", "");
+            out.println(allCompanies);
 
         } else if (companies.stream()
                 .noneMatch(x -> x.contains(request.getParameter("search")))) {
@@ -34,7 +36,7 @@ public class CompaniesServlet extends HttpServlet {
         } else {
             List<String> matchedCompanies = Collections.singletonList(companies.stream()
                     .filter(x -> x.contains(request.getParameter("search")))
-                    .collect(Collectors.joining("\n")));
+                    .collect(Collectors.joining("\n")).replaceAll("[\\[\\]]", ""));
             out.println(matchedCompanies);
         }
         // END
