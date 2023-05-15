@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 import static exercise.Data.getCompanies;
@@ -31,9 +32,9 @@ public class CompaniesServlet extends HttpServlet {
             out.println("Companies not found");
 
         } else {
-            List<String> matchedCompanies = companies.stream()
+            List<String> matchedCompanies = Collections.singletonList(companies.stream()
                     .filter(x -> x.contains(request.getParameter("search")))
-                    .collect(Collectors.toList());
+                    .collect(Collectors.joining("\n")));
             out.println(matchedCompanies);
         }
         // END
