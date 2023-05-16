@@ -23,7 +23,7 @@ public class CompaniesServlet extends HttpServlet {
         String reqStr = request.getQueryString();
         String searchLine = request.getParameter("search");
 
-        if (reqStr == null || searchLine == ""|| !reqStr.contains("search") ) {
+        if (reqStr == null || searchLine.equals("")) {
             companies.forEach(out :: println);
         }
 
