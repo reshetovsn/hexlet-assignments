@@ -25,17 +25,18 @@ public class CompaniesServlet extends HttpServlet {
 
         if (reqStr == null || searchLine.equals("")) {
             companies.forEach(out :: println);
+        } else {
+            String result = companies.stream()
+                    .filter(x -> x.contains(searchLine))
+                    .collect(Collectors.joining("\n"));
+            out.print(result.equals("") ? "Companies not found" : result);
         }
-
-        List<String> matchedCompanies = companies.stream()
-                .filter(x -> x.contains(searchLine))
-                .collect(Collectors.toList());
-
-        if (matchedCompanies.isEmpty()) {
-            out.println("Companies not found");
-        }
-
-        matchedCompanies.forEach(out :: println);
+//
+//        if (matchedCompanies.isEmpty()) {
+//            out.println("Companies not found");
+//        }
+//
+//        matchedCompanies.forEach(out :: println);
         // END
     }
 }
