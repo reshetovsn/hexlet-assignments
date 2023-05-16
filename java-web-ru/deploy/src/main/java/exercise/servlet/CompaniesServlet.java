@@ -36,7 +36,6 @@ public class CompaniesServlet extends HttpServlet {
         if (matchedCompanies.isEmpty()) {
             out.println("Companies not found");
         }
-
         matchedCompanies.forEach(out::println);
         // END
     }
