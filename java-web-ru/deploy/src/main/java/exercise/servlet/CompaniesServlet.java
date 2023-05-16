@@ -6,8 +6,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import static exercise.Data.getCompanies;
@@ -25,7 +23,7 @@ public class CompaniesServlet extends HttpServlet {
         String reqStr = request.getQueryString();
         String searchLine = request.getParameter("search");
 
-        if (reqStr == null || searchLine == "" ) {
+        if (reqStr == null || searchLine == ""|| !reqStr.contains("search") ) {
             companies.forEach(out :: println);
         }
 
