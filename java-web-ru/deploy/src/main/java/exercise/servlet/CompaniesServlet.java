@@ -23,22 +23,21 @@ public class CompaniesServlet extends HttpServlet {
         // BEGIN
         List<String> companies = new ArrayList<>(getCompanies());
         PrintWriter out = response.getWriter();
+        String searchLine = request.getParameter("search");
 
-        if (request.getQueryString() == null) {
-            String allCompanies = companies.stream()
-                    .collect(Collectors.joining("\n")).replaceAll("[\\[\\]]", "");
-            out.println(allCompanies);
-
-        } else if (companies.stream()
-                .noneMatch(x -> x.contains(request.getParameter("search")))) {
-            out.println("Companies not found");
-
-        } else {
-            List<String> matchedCompanies = Collections.singletonList(companies.stream()
-                    .filter(x -> x.contains(request.getParameter("search")))
-                    .collect(Collectors.joining("\n")).replaceAll("[\\[\\]]", ""));
-            out.println(matchedCompanies);
+        if (searchLine == null) {
+            companies.forEach(out :: println);
         }
+
+        List<String> matchedCompanies = companies.stream()
+                .filter(x -> x.contains(searchLine))
+                .collect(Collectors.toList());
+
+        if (matchedCompanies.isEmpty()) {
+            out.println("Companies not found");
+        }
+
+        matchedCompanies.forEach(out::println);
         // END
     }
 }
