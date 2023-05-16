@@ -20,11 +20,12 @@ public class CompaniesServlet extends HttpServlet {
                 throws IOException, ServletException {
 
         // BEGIN
-        List<String> companies = new ArrayList<>(getCompanies());
+        List<String> companies = getCompanies();
         PrintWriter out = response.getWriter();
+        String reqStr = request.getQueryString();
         String searchLine = request.getParameter("search");
 
-        if (searchLine == null) {
+        if (reqStr == null || searchLine == "" ) {
             companies.forEach(out :: println);
         }
 
