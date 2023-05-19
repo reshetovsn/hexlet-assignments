@@ -138,7 +138,7 @@ public class UsersServlet extends HttpServlet {
         }
         // BEGIN
         users.remove(user);
-        request.setAttribute("users", users);
+        request.setAttribute("user", user);
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("/users.jsp");
         requestDispatcher.forward(request, response);
 //        response.sendRedirect("/users");
