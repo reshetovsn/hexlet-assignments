@@ -9,8 +9,7 @@
     </head>
     <body>
     Do you really want to delete user?
-    <form action='/users/delete' method="post">
-        <input name="id" value=${user.get("id")} type="hidden">
+    <form action='/users/delete?id=${user.get("id")}' method="post">
         <button type="submit" class="btn btn-danger">Удалить</button>
     </form>
     </body>

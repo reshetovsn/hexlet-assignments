@@ -1,8 +1,6 @@
 package exercise.servlet;
 
-import java.io.File;
 import java.io.IOException;
-import javax.naming.Context;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -138,10 +136,7 @@ public class UsersServlet extends HttpServlet {
         }
         // BEGIN
         users.remove(user);
-        request.setAttribute("user", user);
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/users.jsp");
-        requestDispatcher.forward(request, response);
-//        response.sendRedirect("/users");
+        response.sendRedirect(request.getContextPath() + "/users");
         // END
 
     }
