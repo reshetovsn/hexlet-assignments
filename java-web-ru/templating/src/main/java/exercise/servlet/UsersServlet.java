@@ -136,7 +136,7 @@ public class UsersServlet extends HttpServlet {
         }
         // BEGIN
         users.remove(user);
-        response.sendRedirect(request.getContextPath() + "/users");
+        response.sendRedirect("/users");
         // END
 
     }
