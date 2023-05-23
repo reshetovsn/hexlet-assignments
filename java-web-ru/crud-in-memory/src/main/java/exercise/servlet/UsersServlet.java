@@ -194,6 +194,7 @@ public class UsersServlet extends HttpServlet {
 
         // BEGIN
         int index = users.indexOf(user);
+        Map<String, String> editedUser = new HashMap<>();
         String firstName = request.getParameter("firstName");
         String lastName = request.getParameter("lastName");
         String email = request.getParameter("email");
@@ -206,10 +207,10 @@ public class UsersServlet extends HttpServlet {
             requestDispatcher.forward(request, response);
             return;
         } else {
-            user.put("firstName", firstName);
-            user.put("lastName", lastName);
-            user.put("email", email);
-            users.set(index, user);
+            editedUser.put("firstName", firstName);
+            editedUser.put("lastName", lastName);
+            editedUser.put("email", email);
+            users.set(index, editedUser);
             response.sendRedirect("/users");
         }
         // END
