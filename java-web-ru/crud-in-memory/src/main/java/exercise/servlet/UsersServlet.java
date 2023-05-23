@@ -210,6 +210,7 @@ public class UsersServlet extends HttpServlet {
             editedUser.put("firstName", firstName);
             editedUser.put("lastName", lastName);
             editedUser.put("email", email);
+            editedUser.put("id", id);
             users.set(index, editedUser);
             response.sendRedirect("/users");
         }

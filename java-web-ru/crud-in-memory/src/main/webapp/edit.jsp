@@ -20,8 +20,12 @@
                     <div class="mb-3">
                         <label>firstName</label>
                          <input class="form-control" type="text" name="firstName" value='${user.get("firstName")}'>
+                    </div>
+                    <div class="mb-3">
                          <label>lastName</label>
                          <input class="form-control" type="text" name="lastName" value='${user.get("lastName")}'>
+                    </div>
+                    <div class="mb-3">
                          label>email</label>
                          <input class="form-control" type="text" name="email" value='${user.get("email")}'>
                     </div>
