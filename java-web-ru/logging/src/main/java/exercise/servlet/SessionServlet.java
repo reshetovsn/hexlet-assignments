@@ -103,4 +103,6 @@ public class SessionServlet extends HttpServlet {
         session.setAttribute("flash", "Вы успешно вышли");
         response.sendRedirect("/");
     }
+
+
 }
