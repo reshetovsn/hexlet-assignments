@@ -77,30 +77,30 @@ class AppTest {
     void testAppWorkValid() {
         HttpResponse<String> response = Unirest
                 .post(baseUrl + "/users")
-                .field("first_name", "Alex")
-                .field("last_name", "Koganov")
+                .field("firstName", "Alex")
+                .field("lastName", "Koganov")
                 .field("email", "Koganov@gmail.com")
                 .field("password", "123456")
                 .asString();
 
         assertThat(response.getStatus()).isEqualTo(302);
 
-        User user = new QUser()
+        User actualUser = new QUser()
                 .firstName.equalTo("Alex")
                 .findOne();
-        assertThat(user).isNotNull();
+        assertThat(actualUser).isNotNull();
 
-        assertThat(user.getLastName()).isEqualTo("Koganov");
-        assertThat(user.getEmail()).isEqualTo("Koganov@gmail.com");
-        assertThat(user.getPassword()).isEqualTo("123456");
+        assertThat(actualUser.getLastName()).isEqualTo("Koganov");
+        assertThat(actualUser.getEmail()).isEqualTo("Koganov@gmail.com");
+        assertThat(actualUser.getPassword()).isEqualTo("123456");
     }
 
     @Test
     void testAppWorkNotValid() {
         HttpResponse<String> response = Unirest
                 .post(baseUrl + "/users")
-                .field("first_name", "Alex")
-                .field("last_name", "")
+                .field("firstName", "Alex")
+                .field("lastName", "")
                 .field("email", "Koganov@gmail.com")
                 .field("password", "123")
                 .asString();
