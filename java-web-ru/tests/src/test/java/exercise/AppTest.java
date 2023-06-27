@@ -113,6 +113,7 @@ class AppTest {
         assertThat(user).isNull();
 
         String content = response.getBody();
+        assertThat(content).contains("Koganov@gmail.com");
         assertThat(content).contains("Фамилия не должна быть пустой");
         assertThat(content).contains("Пароль должен содержать не менее 4 символов");
     }
