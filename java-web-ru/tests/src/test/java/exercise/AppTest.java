@@ -76,7 +76,7 @@ class AppTest {
     @Test
     void testAppWorkValid() {
         HttpResponse<String> response = Unirest
-                .post(baseUrl + "/users/new")
+                .post(baseUrl + "/users")
                 .field("first_name", "Alex")
                 .field("last_name", "Koganov")
                 .field("email", "Koganov@gmail.com")
@@ -98,7 +98,7 @@ class AppTest {
     @Test
     void testAppWorkNotValid() {
         HttpResponse<String> response = Unirest
-                .post(baseUrl + "/users/new")
+                .post(baseUrl + "/users")
                 .field("first_name", "Alex")
                 .field("last_name", "")
                 .field("email", "Koganov@gmail.com")
