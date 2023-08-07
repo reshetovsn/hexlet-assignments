@@ -1,0 +1,19 @@
+2023-08-07 11:31:12 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "DATABASECHANGELOG" not found (this database is empty); SQL statement:
+SELECT COUNT(*) FROM PUBLIC.DATABASECHANGELOG [42104-214]
+2023-08-07 11:31:12 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "DATABASECHANGELOGLOCK" not found (this database is empty); SQL statement:
+SELECT COUNT(*) FROM PUBLIC.DATABASECHANGELOGLOCK [42104-214]
+2023-08-07 12:02:35 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT * FROM person BY [*]id"; SQL statement:
+SELECT * FROM person BY id [42000-214]
+2023-08-07 12:05:44 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Data conversion error converting "id"; SQL statement:
+SELECT * FROM person WHERE id = 'id' [22018-214]
+2023-08-07 12:05:55 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Data conversion error converting "id"; SQL statement:
+SELECT * FROM person WHERE id = 'id' [22018-214]
+2023-08-07 12:06:32 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT * FROM person WHERE id = {id}[*]" [42000-214]
+2023-08-07 12:07:01 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT * FROM person WHERE id = {id}[*]" [42000-214]
