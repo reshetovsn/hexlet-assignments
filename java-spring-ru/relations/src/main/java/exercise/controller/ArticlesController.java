@@ -2,10 +2,8 @@ package exercise.controller;
 
 import exercise.dto.ArticleDto;
 import exercise.model.Article;
-import exercise.model.Category;
 import exercise.repository.ArticleRepository;
 
-import exercise.repository.CategoryRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -45,14 +43,19 @@ public class ArticlesController {
         return articleRepository.save(article);
     }
 
-    @PatchMapping(path = "/{id}")
-    public void updateArticle(@PathVariable long id, @RequestBody Article article) {
-        article.setId(id);
-        this.articleRepository.save(article);
-    }
     @GetMapping(path = "/{id}")
     public Article getArticle(@PathVariable long id) {
         return articleRepository.findById(id);
+    }
+
+    @PatchMapping(path = "/{id}")
+    public Article updateArticle(@PathVariable long id, @RequestBody ArticleDto dto) {
+        Article article = articleRepository.findById(id);
+        article.setCategory(dto.getCategory());
+        article.setName(dto.getName());
+        article.setBody(dto.getBody());
+
+        return articleRepository.save(article);
     }
     // END
 }

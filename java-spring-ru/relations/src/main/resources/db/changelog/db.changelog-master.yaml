@@ -1,6 +1,6 @@
 databaseChangeLog:
 - changeSet:
-    id: 1691746453548-1
+    id: 1691754504245-1
     author: reshetovsn (generated)
     changes:
     - createTable:
@@ -24,7 +24,7 @@ databaseChangeLog:
             type: BIGINT
         tableName: article
 - changeSet:
-    id: 1691746453548-2
+    id: 1691754504245-2
     author: reshetovsn (generated)
     changes:
     - createTable:
@@ -42,7 +42,7 @@ databaseChangeLog:
             type: VARCHAR(255)
         tableName: category
 - changeSet:
-    id: 1691746453548-3
+    id: 1691754504245-3
     author: reshetovsn (generated)
     changes:
     - addForeignKeyConstraint:
@@ -54,13 +54,4 @@ databaseChangeLog:
         referencedColumnNames: id
         referencedTableName: category
         validate: true
-
-databaseChangeLog:
-- changeSet:
-    id: 1691753731251-1
-    author: reshetovsn (generated)
-    changes:
-    - dropUniqueConstraint:
-        constraintName: UK_9YH3UIDJJ6CNUGSKAOGT626D5
-        tableName: ARTICLE
 
