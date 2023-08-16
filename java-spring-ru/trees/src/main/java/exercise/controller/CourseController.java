@@ -35,7 +35,7 @@ public class CourseController {
 
     public List<Course> getPreviousCourses(@PathVariable long id) {
         String path = courseRepository.findById(id).getPath();
-        List<Long> listId = getlistId(path);
+        List<Long> listId = getListId(path);
         List<Course> listCourses = new ArrayList<>();
         if (listId != null) {
             listCourses = listId.stream()
@@ -44,7 +44,7 @@ public class CourseController {
         }
         return listCourses;
     }
-    private List<Long> getlistId(String path) {
+    private List<Long> getListId(String path) {
         if (path != null && !"".equals(path)) {
             return Arrays.stream(path.split("\\."))
                     .map(Long::parseLong)
@@ -53,5 +53,4 @@ public class CourseController {
         return null;
     }
     // END
-
 }
