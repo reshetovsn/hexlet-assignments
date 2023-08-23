@@ -22,6 +22,9 @@ public class Meal {
     }
     // Для самостоятельной работы
     // BEGIN
-    
+    @PostConstruct
+    public void init() {
+        System.out.println("Init bean meal");
+    }
     // END
 }

@@ -13,7 +13,7 @@ public class MealController {
     MyApplicationConfig myApplicationConfig;
 
     @GetMapping(path = "/daytime")
-    public String bonAppetit () {
+    public String bonAppetit() {
         String dayTime = myApplicationConfig.getDaytime().getName();
         return "It is " + dayTime + " now. Enjoy your " + meal.getMealForDaytime(dayTime);
     }
