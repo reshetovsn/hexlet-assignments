@@ -19,7 +19,7 @@ class App {
         LOGGER.info("Thread " + minThread.getName() + " started");
 
         try {
-            minThread.join();
+            maxThread.join();
         } catch (InterruptedException e) {
             System.out.println("Поток был прерван");
         }
