@@ -12,7 +12,9 @@ public final class App {
         Javalin app = Javalin.create(config -> {
             config.plugins.enableDevLogging();
                 });
-        return app.get("/welcome", ctx -> ctx.result("Welcome to Hexlet!"));
+        app.get("/welcome", ctx -> ctx.result("Welcome to Hexlet!"));
+
+        return app;
         // END
     }
 
